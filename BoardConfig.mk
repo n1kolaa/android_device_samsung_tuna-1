@@ -30,7 +30,7 @@ TARGET_OTA_ASSERT_DEVICE := tuna,,maguro,toro,toroplus
 
 # Kernel
 BOARD_KERNEL_BASE := 0x80000000
-# BOARD_KERNEL_CMDLINE :=
+BOARD_KERNEL_CMDLINE := androidboot.selinux=permissive
 TARGET_KERNEL_CONFIG := tuna_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/tuna
 
@@ -73,9 +73,6 @@ BOARD_FLASH_BLOCK_SIZE := 4096
 # No sync framework for this device...
 TARGET_RUNNING_WITHOUT_SYNC_FRAMEWORK := true
 
-#TARGET_PROVIDES_INIT_RC := true
-#TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true
-
 # Wifi
 BOARD_WLAN_DEVICE                := bcmdhd
 BOARD_WLAN_DEVICE_REV            := bcm4330_b2
@@ -85,7 +82,6 @@ BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_bcmdhd
 BOARD_HOSTAPD_DRIVER             := NL80211
 BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_bcmdhd
 WIFI_DRIVER_FW_PATH_PARAM        := "/sys/module/bcmdhd/parameters/firmware_path"
-#WIFI_DRIVER_MODULE_PATH         := "/system/lib/modules/bcmdhd.ko"
 WIFI_DRIVER_FW_PATH_STA          := "/vendor/firmware/fw_bcmdhd.bin"
 WIFI_DRIVER_FW_PATH_AP           := "/vendor/firmware/fw_bcmdhd_apsta.bin"
 WIFI_BAND                        := 802_11_ABG
@@ -112,16 +108,7 @@ BOARD_SEPOLICY_UNION += \
 	genfs_contexts \
 	file_contexts \
 	dumpdcc.te \
-	init.te \
-	mediaserver.te \
-	pvrsrvinit.te \
-	rild.te \
-	bluetooth.te \
-	sdcardd.te \
-	servicemanager.te \
-	system_server.te \
-	zygote.te \
-	vold.te
+	pvrsrvinit.te
 
 # Recovery
 RECOVERY_FSTAB_VERSION := 2
