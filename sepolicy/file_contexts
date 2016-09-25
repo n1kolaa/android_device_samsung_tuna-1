@@ -31,3 +31,6 @@
 
 # Accelerometer
 /dev/accelirq                   u:object_r:accelerometer_device:s0
+
+# System binaries
+/system/bin/dumpdcc		u:object_r:dumpdcc_exec:s0
