@@ -107,8 +107,11 @@ BOARD_SEPOLICY_DIRS += \
 BOARD_SEPOLICY_UNION += \
 	genfs_contexts \
 	file_contexts \
+	device.te \
 	dumpdcc.te \
-	pvrsrvinit.te
+	pvrsrvinit.te \
+	init.te \
+	file.te
 
 # Recovery
 RECOVERY_FSTAB_VERSION := 2
